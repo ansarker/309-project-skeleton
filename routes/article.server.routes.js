@@ -15,9 +15,10 @@ module.exports = function(app){
 	.get(articles.read)
 	.put(users.requiresLogin, articles.update);
 
-
-app.route('/articles/all').get(articles.listView);
-
+app.route('/articles/all').get(articles.listView);	// class done by miss
+app.route('/articles/table').get(articles.lists);	// home done by me
+app.route('/articles/form').get(articles.form);
+app.route('/articles/employee').get(articles.employeeList);
 app.param('articleId', articles.articleByID);
 
 
