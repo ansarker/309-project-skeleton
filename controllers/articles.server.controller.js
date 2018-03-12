@@ -3,40 +3,14 @@ var Article = require('./../models/Article.js');
 var errorHandler = require('./errors.server.controller');
 var _ = require('lodash');
 
-module.exports.employeeList = function(req, res) {
-  Article.find(function(err, data) {
-    if (err) {
-      return rs.status(400).send({
-        message: errorHandler.getErrorMessage(err)
-      });
-    } else {
-      console.log("api called");
-      res.render('./../public/views/article/employee.ejs', {
-        user: req.user || null,
-        request: req,
-        articles: data
-      });
-    }
+
+module.exports.singleView = function(req, res) {
+  res.render('./../public/views/article/view.ejs', {
+    user: req.user || null,
+    request: req
   });
 };
 
-module.exports.form = function(req, res) {
-  Article.find(function(err, data) {
-    if (err) {
-      return res.status(400).send({
-
-          message: errorHandler.getErrorMessage(err)
-        });
-    } else {
-      console.log("api called");
-      res.render('./../public/views/article/form.ejs', {
-        user: req.user || null,
-        request: req,
-        articles: data
-      });
-    }
-  });  
-};
 
 module.exports.listView = function(req, res) {
   Article.find(function(err, data) {
@@ -56,22 +30,6 @@ module.exports.listView = function(req, res) {
   });  
 };
 
-module.exports.lists = function(req, res) {
-  Article.find(function(err, data) {
-    if(err) {
-      return res.status(400).send({
-        message: errorHandler.getErrorMessage(err)
-      });
-    } else {
-      console.log("new api called!");
-      res.render('./../public/views/article/table.ejs', {
-        user: req.user || null,
-        request: req,
-        articles: data
-      });
-    }
-  });
-};
 
 module.exports.list = function(req, res) {
   Article.find(function(err, data) {
