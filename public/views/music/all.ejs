@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <title>All Music</title>
+    </head>
+    <style>
+      table {
+        border: 1px solid #ccc;
+        width: 100%;
+        text-align: center;
+      }
+      
+      td {
+        text-align: center;
+        border: none;
+        background: #eee;
+        padding: 5px;
+        box-sizing: border-box;
+      }
+    </style>
+    <body>
+        
+        <h3>List of all Music</h3>
+		<h1>Music List</h1>
+<% console.log(musics) %>
+
+  
+  <table>
+    <tr>
+      <th>No</th><th>Title</th><th>Artists</th><th>Album</th><th>Genre</th><th>Duration</th>
+    </tr>
+    <% for (var i = 0; i < musics.length; i++) { %>
+    <tr>
+      <td> <%= i+1 %>  </td>
+      <td> <%= musics[i].title %>  </td>
+      <td> <%= musics[i].artist %>  </td>
+      <td> <%= musics[i].album %>  </td>
+      <td> <%= musics[i].genre %>  </td>
+      <td> <%= musics[i].duration %>  </td>
+    </tr>
+    <% } %>
+  </table>
+  
+
+    </body>
+</html>

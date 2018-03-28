@@ -1,10 +1,12 @@
-<!--<html>-->
-<!--    <head>-->
-<!--        <title>Views</title>-->
-<!--    </head>-->
-<!--    <body>-->
-<!--        <h1>Single Article View</h1>-->
-<!--        <%= request.article.title %>-->
-<!--        <%= request.article.content %>-->
-<!--    </body>-->
-<!--</html>-->
+<html>
+    <head>
+        <title>Single Product</title>
+    </head>
+    <body>
+        <h1>Single product view</h1>
+        <h3> <%= request.product.title %> </h3>
+        <p> <%= request.product.description %> </p>
+        <p>BDT <%= request.product.price %> </p>
+        <p>Quantity <%= request.product.quantity %> </p>
+    </body>
+</html>

@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <title>Add Music</title>
+    </head>  
+    <body>
+        <h1>Add new Music</h1>
+        <h2>Title:</h2>
+        <input type="text" id="title"/><br/>
+        <p>Artist: </p>
+        <input type="text" id="artist" /><br/>
+        <p>Album:</p>
+        <input type="text" id="album"/><br/>
+        <p>Duration:</p>
+        <input type="text" id="duration"/><br/>
+        <p>Genre:</p>
+        <input type="text" id="genre"/><br/>
+        <button id="submit">Submit</button>
+        <script src="/lib/jquery/dist/jquery.min.js"></script>
+        <script>
+        var newMusic = {title:"", artist:"", album:"", duration:"", genre:""};
+            $('#submit').click(function(){
+                console.log('submit clicked');
+                newMusic.title= $('#title').val();
+                newMusic.artist = $('#artist').val();
+                newMusic.album= $('#album').val();
+                newMusic.duration = $('#duration').val();
+                newMusic.genre = $("#genre").val();
+                $.ajax({
+                    method: "POST",
+                    url: "/api/musics",
+                    data: newMusic
+                }).done(function(response){
+                    console.log(response);
+                }).fail(function(response){
+                    console.log(response.responseText);
+                });
+            });
+        </script>
+    </body>
+</html>

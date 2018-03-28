@@ -17,7 +17,7 @@ module.exports = function(app){
 
 app.route('/products/all').get(products.listView);
 app.route('/products/new').get(products.createView);
-app.route('/products/:productId').get(products.singleView);
+app.route('/product/:productId').get(products.singleView);
 
 app.param('productId', products.productByID);
 }
